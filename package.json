@@ -19,7 +19,7 @@
   },
   "homepage": "https://gitlab.com/sanch941/webpack-boilerplate#readme",
   "devDependencies": {
-    "@sanch941/configs-webpack": "^6.2.0",
+    "@sanch941/configs-webpack": "^7.0.2",
     "@types/history": "^4.7.3",
     "@types/i18next-browser-languagedetector": "^3.0.0",
     "@types/i18next-xhr-backend": "^1.4.2",
@@ -55,7 +55,7 @@
   "dependencies": {
     "@date-io/date-fns": "1.x",
     "@reduxjs/toolkit": "^1.7.1",
-    "@sanch941/lib": "^4.7.2",
+    "@sanch941/lib": "^4.12.3",
     "axios": "^0.19.2",
     "core-js": "3",
     "date-fns": "^2.16.1",
