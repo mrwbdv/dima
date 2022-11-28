@@ -6,6 +6,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { ErrorBoundary } from '@features/error-boundary';
 import { GlobalStyles } from './global-styles';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 export const App: FC = () => (
     <ErrorBoundary>
         <Provider store={store}>

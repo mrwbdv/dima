@@ -37,6 +37,6 @@ const StyledContainer = styled(Box)`
 `;
 
 const StyledText = styled(Text)`
-    text-transform: upper-case;
+    text-transform: uppercase;
     letter-spacing: 0.1em;
 `;

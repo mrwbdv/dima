@@ -1,12 +1,11 @@
-import { media, pxRem } from '@sanch941/lib';
+import { media, pxRem, Box } from '@sanch941/lib';
 import styled from 'styled-components';
 
-export const Container = styled.div<{ mobilePadding?: boolean }>`
-    padding: ${({ mobilePadding = true }) => mobilePadding && `0 ${pxRem(20)}`};
+export const Container = styled(Box)`
+    padding: 0 ${pxRem(15)};
 
     ${media.md} {
-        padding: 0;
-        max-width: ${pxRem(1300)};
+        max-width: ${pxRem(1270)};
         margin: 0 auto;
     }
 `;

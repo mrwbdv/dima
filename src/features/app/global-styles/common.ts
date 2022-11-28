@@ -8,7 +8,7 @@ export const Common = createGlobalStyle`
 
     body {
         overflow-x: hidden;
-        overflow-y: scroll;
+        overflow-y: auto;
         background-color: #fff;
         color: #1c1526;
         line-height: 1.15;
@@ -38,5 +38,14 @@ export const Common = createGlobalStyle`
     input[type=number] {
         -moz-appearance: textfield;
     }
+
+    // .slick-slide {
+    //     margin: 0 27px;
+    // }
+  
+    // /* the parent */
+    // .slick-list {
+    //     margin: 0 -27px;
+    // }
 
 `;

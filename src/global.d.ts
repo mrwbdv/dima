@@ -1,6 +1,10 @@
 declare const _ASSETS_PATH_: string;
 declare const _DEV_: string;
 
+declare module '*.webp' {
+    const content: any;
+    export default content;
+}
 declare module '*.svg' {
     const content: any;
     export default content;
