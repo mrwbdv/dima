@@ -1,18 +1,28 @@
-import { Box, pxRem } from '@sanch941/lib';
 import React from 'react';
-import Slider from 'react-slick';
+import { Box, media, pxRem } from '@sanch941/lib';
+import OwlCarousel from 'react-owl-carousel';
 import styled from 'styled-components';
 
-export const ProjectsTemplate = () => {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1
-    };
-    const imagesArray = Array.from(Array(33).keys());
+const imagesArray = Array.from(Array(33).keys());
 
+const options = {
+    margin: 20,
+    loop: true,
+    autoWidth: true,
+    responsive: {
+        0: {
+            dots: false,
+            center: true
+        },
+        768: {
+            dots: true,
+            center: false,
+            autoWidth: false
+        }
+    }
+};
+
+export const ProjectsTemplate = () => {
     const images = imagesArray.map((image) => {
         const img = require(`@assets/images/projects/${image + 1}.png`);
         return <StyledImg key={image} src={img} alt="Project Picture" />;
@@ -21,18 +31,31 @@ export const ProjectsTemplate = () => {
     return (
         <Container>
             <Box $top={100}>
-                <Slider {...settings}>{images}</Slider>
+                <OwlCarousel className="owl-theme" {...options}>
+                    {images}
+                </OwlCarousel>
             </Box>
         </Container>
     );
 };
 
 const StyledImg = styled.img`
-    max-height: ${pxRem(500)};
-    max-width: ${pxRem(310)};
+    max-width: ${pxRem(195)};
+
+    ${media.md} {
+        max-width: ${pxRem(310)};
+    }
 `;
 
 const Container = styled(Box)`
     max-width: ${pxRem(970)};
     margin: 0 auto;
+
+    ${media.md} {
+        ${Box} {
+            & > .owl-carousel > .owl-dots {
+                margin-top: ${pxRem(30)};
+            }
+        }
+    }
 `;
