@@ -9,7 +9,9 @@ export const SuccessfulProjectTemplate = () => {
             <Box
                 $top={60}
                 $bottom={51}
-                md={{ $top: 63, $left: 145, $right: 145, $bottom: 100 }}
+                $left="5%"
+                $right="5%"
+                lg={{ $top: 63, $left: 145, $right: 145, $bottom: 100 }}
             >
                 <SectionTitle>
                     Strong UX and beautiful UI - key to a successful project

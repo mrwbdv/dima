@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const Common = createGlobalStyle`
     html {
-        font-family: 'Gilroy', 'Calibri', sans-serif;
+        font-family: 'Space Grotesk', sans-serif;
         font-size: 16px;
     }
 
@@ -39,13 +39,25 @@ export const Common = createGlobalStyle`
         -moz-appearance: textfield;
     }
 
-    // .slick-slide {
-    //     margin: 0 27px;
-    // }
-  
-    // /* the parent */
-    // .slick-list {
-    //     margin: 0 -27px;
-    // }
+
+    .modal-enter .modalContent {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      .modal-enter-active .modalContent {
+        opacity: 1;
+        transform: translateX(0);
+        transition: all 0.2s;
+      }
+      .modal-exit .modalContent {
+        opacity: 1;
+      }
+      .modal-exit-active .modalContent {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all 0.2s;
+      }
+
+   
 
 `;

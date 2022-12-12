@@ -6,12 +6,12 @@ import styled from 'styled-components';
 export const SkillsTemplate = () => {
     return (
         <Container>
-            <Box md={{ $left: 145, $right: 145 }}>
+            <Box $left="5%" $right="5%" lg={{ $left: 145, $right: 145 }}>
                 <SectionTitle>Skills</SectionTitle>
                 <StyledContent
                     $top={20}
                     $bottom={67}
-                    md={{ $flex: true, $bottom: 200 }}
+                    lg={{ $flex: true, $bottom: 200 }}
                 >
                     <StyledContainer>
                         <StyledColumn>

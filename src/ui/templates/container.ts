@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Container = styled(Box)`
     padding: 0 ${pxRem(15)};
 
-    ${media.md} {
+    ${media.lg} {
         max-width: ${pxRem(1270)};
         margin: 0 auto;
     }

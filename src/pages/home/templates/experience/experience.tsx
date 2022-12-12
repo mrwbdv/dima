@@ -9,7 +9,9 @@ export const ExperienceTemplate = () => {
             <Box
                 $top={60}
                 $bottom={60}
-                md={{ $top: 100, $bottom: 100, $left: 145, $right: 145 }}
+                $left="5%"
+                $right="5%"
+                lg={{ $top: 100, $bottom: 100, $left: 145, $right: 145 }}
             >
                 <SectionTitle>
                     I help my clients To stand out from the competition with the
