@@ -10,9 +10,6 @@ import arrowLeft from '@assets/images/slider/arrow-left.svg';
 
 import styled from 'styled-components';
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 const imagesArray = Array.from(Array(33).keys());
 
 const responsive = [

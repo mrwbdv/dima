@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, IsDesktop, IsMobile } from '@sanch941/lib';
+import { IsDesktop, IsMobile } from '@sanch941/lib';
 import { DesktopWelcome } from './desktop';
 import { MobileWelcome } from './mobile';
 

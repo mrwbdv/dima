@@ -13,19 +13,6 @@ export const Common = createGlobalStyle`
         color: #1c1526;
         line-height: 1.15;
     }
-    #modal-root{
-        position: relative;
-    }
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-
 
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
@@ -57,7 +44,5 @@ export const Common = createGlobalStyle`
         transform: scale(0.9);
         transition: all 0.2s;
       }
-
-   
 
 `;

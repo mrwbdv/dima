@@ -16,9 +16,6 @@ export const HomePage = () => {
             <SuccessfulProjectTemplate />
             <AboutTemplate />
             <SkillsTemplate />
-            {/* <SkillsTemplate /> */}
-            {/* <ProjectsTemplate />
-            <AboutTemplate /> */}
         </CommonTemplate>
     );
 };

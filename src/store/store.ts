@@ -1,7 +1,4 @@
-import { Action } from 'redux';
-import { ThunkAction } from 'redux-thunk';
-import { rootReducer, AppStateType } from './root-reducer';
-import { setupAxios } from '../lib/axios';
+import { rootReducer } from './root-reducer';
 import { persistStore } from 'redux-persist';
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux';
@@ -21,5 +18,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-setupAxios();

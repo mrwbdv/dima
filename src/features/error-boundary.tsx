@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary';
-import { baseAxios } from '../lib/axios';
 
 const ErrorFallback = ({ error, resetErrorBoundary }) => {
     return (
@@ -12,20 +11,9 @@ const ErrorFallback = ({ error, resetErrorBoundary }) => {
     );
 };
 
-const myErrorHandler = (error: Error, info: any) => {
-    const { name, message, stack } = error;
-
-    baseAxios.post('/log/frontend', {
-        message: 'Ошибка платежной формы(Error boundary)',
-        // если просто отправлять без деструризации то в network браузера он его не отправляет
-        // поэтому приходится отправлять вот так
-        error: {
-            message,
-            name,
-            stack
-        },
-        info
-    });
+const myErrorHandler = (error: Error) => {
+    const { name, message } = error;
+    console.error('Ошибка', name, message);
 };
 
 export const ErrorBoundary: FC = ({ children }) => {

@@ -1,25 +1,14 @@
-import React, { useRef } from 'react';
-import {
-    Box,
-    pxRem,
-    media,
-    Portal,
-    Text,
-    IsMobile,
-    IsDesktop
-} from '@sanch941/lib';
+import React, { useCallback, useEffect, useRef } from 'react';
+import Slider from 'react-slick';
+import { Box, pxRem, media, Text, IsMobile, IsDesktop } from '@sanch941/lib';
 import { useAppDispatch, useAppSelector } from '@store';
 import { modalActions } from './model';
-import Slider from 'react-slick';
 import styled from 'styled-components';
 
 import closeGray from '@assets/images/close_gray.svg';
 import closeWhite from '@assets/images/close_white.svg';
 import arrowRight from '@assets/images/slider/arrow-right.svg';
 import arrowLeft from '@assets/images/slider/arrow-left.svg';
-
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 export const Modal = () => {
     const { currentSlide, data } = useAppSelector(({ modal }) => ({
@@ -34,19 +23,19 @@ export const Modal = () => {
         dispatch(modalActions.setCurrentSlide(-1));
     };
 
-    // const handleEscape = useCallback(
-    //     (event) => {
-    //         if (event.keyCode === 27) closeModal();
-    //     },
-    //     [closeModal]
-    // );
+    const handleEscape = useCallback(
+        (event) => {
+            if (event.keyCode === 27) closeModal();
+        },
+        [closeModal]
+    );
 
-    // useEffect(() => {
-    //     if (open) document.addEventListener('keydown', handleEscape, false);
-    //     return () => {
-    //         document.removeEventListener('keydown', handleEscape, false);
-    //     };
-    // }, [handleEscape, open]);
+    useEffect(() => {
+        if (open) document.addEventListener('keydown', handleEscape, false);
+        return () => {
+            document.removeEventListener('keydown', handleEscape, false);
+        };
+    }, [handleEscape, open]);
 
     return (
         <StyledModalContainer>
@@ -201,6 +190,7 @@ const StyledClose = styled.div`
         top: ${pxRem(40)};
         right: ${pxRem(40)};
         background: none;
+        padding: 0;
         > img {
             width: ${pxRem(41)};
             height: ${pxRem(41)};
