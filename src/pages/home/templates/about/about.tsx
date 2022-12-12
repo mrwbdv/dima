@@ -91,7 +91,7 @@ const StyledContent = styled(Box)`
 const StyledBox = styled(Box)<{ gridArea?: string; gridAreaLarge?: string }>`
     background-color: #000;
     border-radius: 10px;
-    padding: ${pxRem(35)} ${pxRem(30)};
+    padding: ${pxRem(30)} ${pxRem(25)};
     grid-area: ${({ gridArea }) => gridArea};
     ${media.md} {
         grid-area: ${({ gridAreaLarge }) => gridAreaLarge};

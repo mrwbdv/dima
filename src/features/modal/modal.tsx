@@ -1,11 +1,20 @@
 import React, { useRef } from 'react';
-import { Box, pxRem, media, Portal, Text } from '@sanch941/lib';
+import {
+    Box,
+    pxRem,
+    media,
+    Portal,
+    Text,
+    IsMobile,
+    IsDesktop
+} from '@sanch941/lib';
 import { useAppDispatch, useAppSelector } from '@store';
 import { modalActions } from './model';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
-import close from '@assets/images/close.svg';
+import closeGray from '@assets/images/close_gray.svg';
+import closeWhite from '@assets/images/close_white.svg';
 import arrowRight from '@assets/images/slider/arrow-right.svg';
 import arrowLeft from '@assets/images/slider/arrow-left.svg';
 
@@ -48,9 +57,15 @@ export const Modal = () => {
                 <StyledClose
                     role="button"
                     aria-label="close"
-                    src={close}
                     onClick={closeModal}
-                />
+                >
+                    <IsMobile>
+                        <img src={closeWhite} alt="close" />
+                    </IsMobile>
+                    <IsDesktop>
+                        <img src={closeGray} alt="close" />
+                    </IsDesktop>
+                </StyledClose>
                 <Slider
                     className="stories-modal-list"
                     slidesToShow={1}
@@ -164,20 +179,32 @@ const StyledModalContainer = styled.div`
     }
 `;
 
-const StyledClose = styled.img`
+const StyledClose = styled.div`
     position: fixed;
-    width: ${pxRem(26)};
-    height: ${pxRem(26)};
-    top: ${pxRem(22)};
-    right: ${pxRem(22)};
+    top: 0;
+    right: 0;
     cursor: pointer;
     z-index: 21;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: ${pxRem(22)};
+
+    > img {
+        width: ${pxRem(26)};
+        height: ${pxRem(26)};
+        z-index: 22;
+    }
 
     ${media.md} {
         top: ${pxRem(40)};
         right: ${pxRem(40)};
-        width: ${pxRem(41)};
-        height: ${pxRem(41)};
+        background: none;
+        > img {
+            width: ${pxRem(41)};
+            height: ${pxRem(41)};
+        }
     }
 `;
 
@@ -188,12 +215,14 @@ const StyledContent = styled(Box)`
 
     .stories-modal-list {
         height: 100%;
-        display: flex;
-        align-items: center;
-
-        .slick-track {
+        ${media.md} {
             display: flex;
             align-items: center;
+
+            .slick-track {
+                display: flex;
+                align-items: center;
+            }
         }
     }
 `;

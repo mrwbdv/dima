@@ -2,8 +2,7 @@ import React from 'react';
 import { Box, Text } from '@sanch941/lib';
 import { Container } from '@ui';
 import styled from 'styled-components';
-import welcome from '@assets/images/welcome/welcome_bg_mobile.png';
-import men from '@assets/images/welcome/men_mobile.png';
+import welcome from '@assets/images/welcome/welcome_bg_mobile.webp';
 
 export const MobileWelcome = () => {
     return (
@@ -24,7 +23,7 @@ export const MobileWelcome = () => {
                         SENIOR <br></br> UI / UX / 3D <br></br> DESIGNER
                     </Text>
                 </Box>
-                <StyledImg src={men} />
+                {/* <StyledImg src={men} /> */}
             </Container>
         </StyledContainer>
     );
@@ -34,6 +33,7 @@ const StyledImg = styled.img``;
 
 const StyledContainer = styled(Box)`
     background: url(${welcome}) center / cover no-repeat;
+    min-height: 100vh;
 `;
 
 const StyledText = styled(Text)`

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, media, pxRem } from '@sanch941/lib';
+import { Box, media, pxRem, Text } from '@sanch941/lib';
 import { Container, SectionTitle, Divider } from '@ui';
 import styled from 'styled-components';
 
@@ -63,6 +63,7 @@ export const ExperienceTemplate = () => {
                     </Box>
                 </StyledBox>
             </Box>
+            <StyledText>HOW CAN I HELP YOU</StyledText>
         </Container>
     );
 };
@@ -94,4 +95,19 @@ const Title = styled.h2`
     letter-spacing: 0.1em;
     color: #262626;
     margin-bottom: ${pxRem(16)};
+`;
+
+const StyledText = styled(Text)`
+    display: inline-block;
+    transform-origin: top left;
+    position: absolute;
+    left: ${pxRem(15)};
+    top: 50%;
+    transform: rotate(-90deg) translate(-50%);
+    font-weight: 700;
+    font-size: ${pxRem(16)};
+    line-height: ${pxRem(20)};
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #a5a5a5;
 `;

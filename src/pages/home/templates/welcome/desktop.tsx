@@ -4,7 +4,6 @@ import { Container } from '@ui';
 import styled from 'styled-components';
 
 import welcome from '@assets/images/welcome/welcome_bg_desktop.webp';
-import men from '@assets/images/welcome/men_desktop.png';
 
 export const DesktopWelcome = () => {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Divider, SectionTitle } from '@ui';
-import { Box, IsMobile, media, pxRem } from '@sanch941/lib';
+import { Box, IsMobile, Text, pxRem } from '@sanch941/lib';
 import styled from 'styled-components';
 
 export const SuccessfulProjectTemplate = () => {
@@ -54,6 +54,7 @@ export const SuccessfulProjectTemplate = () => {
                     </Box>
                 </Box>
             </Box>
+            <StyledSubtitle>WHY CHOOSE ME</StyledSubtitle>
         </Container>
     );
 };
@@ -63,4 +64,19 @@ const StyledText = styled.p`
     font-size: ${pxRem(16)};
     line-height: ${pxRem(30)};
     color: #262626;
+`;
+
+const StyledSubtitle = styled(Text)`
+    display: inline-block;
+    transform-origin: top left;
+    position: absolute;
+    left: ${pxRem(15)};
+    top: 50%;
+    transform: rotate(-90deg) translate(-50%);
+    font-weight: 700;
+    font-size: ${pxRem(16)};
+    line-height: ${pxRem(20)};
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #a5a5a5;
 `;

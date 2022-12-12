@@ -6,13 +6,9 @@ import styled from 'styled-components';
 export const SkillsTemplate = () => {
     return (
         <Container>
-            <Box $left="5%" $right="5%" lg={{ $left: 145, $right: 145 }}>
+            <Box lg={{ $left: 145, $right: 145 }}>
                 <SectionTitle>Skills</SectionTitle>
-                <StyledContent
-                    $top={20}
-                    $bottom={67}
-                    lg={{ $flex: true, $bottom: 200 }}
-                >
+                <StyledContent $top={20} $bottom={67} lg={{ $bottom: 200 }}>
                     <StyledContainer>
                         <StyledColumn>
                             <StyledCell>FIGMA</StyledCell>
@@ -110,7 +106,15 @@ export const SkillsTemplate = () => {
 };
 
 const StyledContent = styled(Box)`
-    column-gap: ${pxRem(26)};
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+
+    ${media.xl} {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        column-gap: ${pxRem(26)};
+    }
 `;
 
 const StyledContainer = styled(Box)`
@@ -118,6 +122,11 @@ const StyledContainer = styled(Box)`
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-auto-flow: column;
+    column-gap: ${pxRem(15)};
+
+    ${media.xl} {
+        column-gap: 0;
+    }
 `;
 
 const StyledColumn = styled.div`

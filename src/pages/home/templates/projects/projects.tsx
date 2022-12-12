@@ -1,10 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import Slider from 'react-slick';
-import { Box, media, pxRem, Text } from '@sanch941/lib';
+import { Box, media, pxRem } from '@sanch941/lib';
 import { useAppDispatch, useAppSelector } from '@store';
 import { modalActions } from '@features/modal/model';
 import { Modal } from '@features/modal';
 import { CSSTransition } from 'react-transition-group';
+import arrowRight from '@assets/images/slider/arrow-right.svg';
+import arrowLeft from '@assets/images/slider/arrow-left.svg';
+
 import styled from 'styled-components';
 
 import 'slick-carousel/slick/slick.css';
@@ -13,14 +16,16 @@ import 'slick-carousel/slick/slick-theme.css';
 const imagesArray = Array.from(Array(33).keys());
 
 const responsive = [
-    // { breakpoint: 1200, settings: { slidesToShow: 5 } },
-    // { breakpoint: 992, settings: { slidesToShow: 4 } },
-    // { breakpoint: 820, settings: { slidesToShow: 3 } },
-    // { breakpoint: 767, settings: { slidesToShow: 5 } },
     { breakpoint: 576, settings: { slidesToShow: 3, centerMode: false } },
     {
         breakpoint: 480,
-        settings: { slidesToShow: 1, centerMode: true, dots: false }
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            centerMode: true,
+            dots: false,
+            variableWidth: true
+        }
     }
 ];
 
@@ -37,15 +42,12 @@ export const ProjectsTemplate = () => {
             image + 1
         }.webp`);
         return (
-            <Box $width={195} key={image}>
-                <StyledImg
-                    src={img}
-                    alt="Project Picture"
-                    onClick={() =>
-                        dispatch(modalActions.setCurrentSlide(index))
-                    }
-                />
-            </Box>
+            <StyledImg
+                key={image}
+                src={img}
+                alt="Project Picture"
+                onClick={() => dispatch(modalActions.setCurrentSlide(index))}
+            />
         );
     });
 
@@ -56,8 +58,6 @@ export const ProjectsTemplate = () => {
                     speed={3000}
                     infinite={true}
                     responsive={responsive}
-                    // className={css(style.slider)}
-                    // responsive={responsive}
                     slidesToShow={3}
                     slidesToScroll={3}
                     arrows={false}
@@ -66,6 +66,14 @@ export const ProjectsTemplate = () => {
                 >
                     {images}
                 </Slider>
+                <StyledArrow
+                    src={arrowLeft}
+                    onClick={() => sliderNav.current?.slickPrev()}
+                />
+                <StyledArrow
+                    src={arrowRight}
+                    onClick={() => sliderNav.current?.slickNext()}
+                />
             </Box>
 
             <CSSTransition
@@ -82,10 +90,12 @@ export const ProjectsTemplate = () => {
 
 const StyledImg = styled.img`
     cursor: pointer;
-    // max-width: ${pxRem(195)};
+    padding: ${pxRem(7)};
+    max-width: ${pxRem(195)};
 
     ${media.md} {
-        // max-width: ${pxRem(310)};
+        max-width: 100%;
+        padding: ${pxRem(10)};
     }
 `;
 
@@ -102,12 +112,21 @@ const Container = styled(Box)`
     }
 `;
 
-const StyledStyledList = styled.ul``;
+const StyledArrow = styled.img`
+    display: none;
+    ${media.md} {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -${pxRem(60)};
+        transform: translateY(-50%);
+        height: ${pxRem(29)};
+        width: ${pxRem(22)};
+        cursor: pointer;
 
-const StyledListItem = styled.li`
-    list-style-type: disc;
-    font-weight: 500;
-    font-size: ${pxRem(16)};
-    line-height: ${pxRem(30)};
-    color: #262626;
+        &:last-child {
+            left: auto;
+            right: -${pxRem(60)};
+        }
+    }
 `;
